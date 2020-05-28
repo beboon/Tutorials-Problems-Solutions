@@ -131,7 +131,7 @@ alias ll="ls -la"
 alias c="clear"
 
 # Save a lot of typing for common commands
-alias git="cd /home/imahamud/github"
+alias gitdir="cd /home/imahamud/github"
 alias code="cd /home/imahamud/Programming/Python"
 alias yayu="yay -Syu"
 alias pacu="yay -Syu"
@@ -142,8 +142,10 @@ alias gs="git status"
 alias ga="git add ."
 alias gc="git commit -a -m"
 alias gac="git add . && git commit -a -m "
+alias gps="git push origin master"
+alias gpl="git pull"
 alias vi="vim"
-alias py="python"
+#alias py="python"
 
 # Save you from mistyping
 alias sl="ls"
@@ -181,5 +183,26 @@ compinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+# Disable asking for SSH Passphrase everytime
+SSH_ENV=$HOME/.ssh/environment
 
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+    echo succeeded
+    chmod 600 ${SSH_ENV}
+    . ${SSH_ENV} > /dev/null
+    /usr/bin/ssh-add
+}
+
+if [ -f "${SSH_ENV}" ]; then
+     . ${SSH_ENV} > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 
