@@ -63,8 +63,15 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
-# Put the cursor onto the "empty" space at the end of every line
-set ve+=onemore
+set selection=exclusive
+" allows cursor to go to the end of line with g$
+set virtualedit+=onemore
+noremap $ g$
+" Remap VIM 1 to first non-blank character and 2 to the last non-blank character
+nnoremap 1 ^
+nnoremap 2 g$
+" mapping for <End>
+map <Esc>[4~ g$
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -86,4 +93,18 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
-
+" markdown
+let g:markdown_fenced_languages = [
+    \ 'bash=sh',
+    \ 'c',
+    \ 'coffee',
+    \ 'erb=eruby',
+    \ 'javascript',
+    \ 'json',
+    \ 'perl',
+    \ 'python',
+    \ 'ruby',
+    \ 'yaml',
+    \ 'go',
+\]
+let g:markdown_syntax_conceal = 0
