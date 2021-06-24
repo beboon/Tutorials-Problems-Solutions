@@ -1,0 +1,59 @@
+"          _                    
+"         (_)                   
+"   __   ___ _ __ ___  _ __ ___ 
+"   \ \ / / | '_ ` _ \| '__/ __|
+"    \ V /| | | | | | | | | (__ 
+"     \_/ |_|_| |_| |_|_|  \___|
+                            
+
+" Basic syntax highlighting
+syntax enable
+
+" Detect different filetypes
+filetype on
+
+" Smart tab
+set smarttab
+
+" Auto Indent
+set autoindent
+
+" Numbers and relative number
+set number relativenumber
+
+" Backspace through anything
+set backspace=indent,eol,start
+
+" Set clipboard to system clipboard to allow proper copying and pasting
+set clipboard=unnamedplus
+
+" No compatible with vi
+set nocompatible
+
+" Switch between case sensitive and insensitive automatically during search
+set smartcase
+
+" Automatically change directory
+set autochdir
+
+" Completion in command mode
+set wildmode=longest,list,full
+
+" Set splits to open below and on the right side
+set splitbelow splitright
+
+" Set leader key to space
+let mapleader = " "
+
+
+" Compiling commands
+source ~/.vim/config/compile.vim
+
+" Plugins
+source ~/.vim/config/plugins.vim
+
+" Functions
+source ~/.vim/config/functions.vim
+
+" Statusbar
+source ~/.vim/config/statusbar.vim
