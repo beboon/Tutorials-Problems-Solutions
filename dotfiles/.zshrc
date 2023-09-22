@@ -137,21 +137,33 @@ bindkey -v
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Lines configured by zsh-newuser-install
 
+# Python aliases
+alias python='python3'
+alias venv='python -m venv'
+alias mkenv='python -m venv venv'
+alias activate='source venv/bin/activate'
+alias pipinstall='pip install --upgrade && pip install'
+alias freezepip='pip freeze > requirements.txt'
+alias deact='deactivate'
+
+# Create python project
+alias mkprj='mkdir Proj-XX && cd Proj-XX && python -m venv venv && source ./venv/bin/activate && pip freeze > requirements.txt && git init'
+
+# Handy aliases
+alias sc='source'
+alias ll='ls -la'
+alias c='clear'
+alias cls='clear'
+alias x='exit'
+alias .='cd'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
 ## wget with resume support ##
 alias wget='wget -c'
 ## cd to common  ##
 
-# Make shorthands for common flags
-alias ll="ls -la"
-alias c="clear"
-
-# Save a lot of typing for common commands
-alias gitdir="cd /home/imahamud/github"
-alias code="cd /home/imahamud/Programming/Python"
-alias yayu="yay -Syu"
-alias pacu="yay -Syu"
-alias orphan="yay -Rns $(pacman -Qtdq)"
-# alias orphan="sudo pacman -Rns $(pacman -Qtdq)"
 ## git add; git add; git commit; git add && git commit ##
 alias gs="git status"
 alias ga="git add ."
@@ -160,7 +172,6 @@ alias gac="git add . && git commit -a -m "
 alias gps="git push origin master"
 alias gpl="git pull"
 alias vi="vim"
-#alias py="python"
 
 # Save you from mistyping
 alias sl="ls"
